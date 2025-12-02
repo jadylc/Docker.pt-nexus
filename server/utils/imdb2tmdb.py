@@ -51,7 +51,7 @@ def imdb_to_tmdb(imdb_url: str, api_key: str = None) -> tuple[str, str] | str:
 
     # 构造TMDB API基础URL列表，优先使用直接API，失败时使用代理
     api_bases = [
-        ("直连API", "https://api.themoviedb.org"),
+        ("直连API", "https://api.tmdb.org"),
         ("代理API",
          "http://ptn-proxy.sqing33.dpdns.org/https://api.themoviedb.org")
     ]
@@ -194,8 +194,3 @@ if __name__ == "__main__":
     # 测试IMDb到TMDB转换
     tmdb_result = imdb_to_tmdb(test_imdb_url)
     print(f"转换的TMDB结果: {tmdb_result}")
-
-    # 测试综合获取
-    result = get_tmdb_url_from_any_source(imdb_link=test_imdb_url,
-                                          tmdb_link="")
-    print(f"最终TMDB链接: {result}")
